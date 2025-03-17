@@ -17,6 +17,8 @@ filtered_items = {
        if item_data['gold']['total'] > 2200 and item_data['maps']['11'] == True
 }
 
+passiveCritBonus = 0.003
+passiveCritBonus = 0.0025
 
 class jhin(object):
     # Class variable for reference in calculation
@@ -42,10 +44,10 @@ class item(object):
         self.bonusAS = 0
 
 def calculate_bonus_damage_percentage(critP, bonusAS):
-    if int((1.44 + (critP * 0.003) + (bonusAS * 0.0025) * 1000) % 10) == 5:
-        bonusDamagePercentage = round((1.44 + (critP * 0.003) + (bonusAS * 0.0025)) + 0.001, 2)
+    if int((1.44 + (critP * passiveCritBonus) + (bonusAS * passiveCritBonus) * 1000) % 10) == 5:
+        bonusDamagePercentage = round((1.44 + (critP * passiveCritBonus) + (bonusAS * passiveCritBonus)) + 0.001, 2)
     else:
-        bonusDamagePercentage = round((1.44 + (critP * 0.003) + (bonusAS * 0.0025)), 2)
+        bonusDamagePercentage = round((1.44 + (critP * passiveCritBonus) + (bonusAS * passiveCritBonus)), 2)
     return bonusDamagePercentage
 
 
