@@ -18,7 +18,7 @@ filtered_items = {
 }
 
 passiveCritBonus = 0.003
-passiveCritBonus = 0.0025
+passiveSpeedBonus = 0.0025
 
 class jhin(object):
     # Class variable for reference in calculation
@@ -44,10 +44,10 @@ class item(object):
         self.bonusAS = 0
 
 def calculate_bonus_damage_percentage(critP, bonusAS):
-    if int((1.44 + (critP * passiveCritBonus) + (bonusAS * passiveCritBonus) * 1000) % 10) == 5:
-        bonusDamagePercentage = round((1.44 + (critP * passiveCritBonus) + (bonusAS * passiveCritBonus)) + 0.001, 2)
+    if int((1.44 + (critP * passiveCritBonus) + (bonusAS * passiveSpeedBonus) * 1000) % 10) == 5:
+        bonusDamagePercentage = round((1.44 + (critP * passiveCritBonus) + (bonusAS * passiveSpeedBonus)) + 0.001, 2)
     else:
-        bonusDamagePercentage = round((1.44 + (critP * passiveCritBonus) + (bonusAS * passiveCritBonus)), 2)
+        bonusDamagePercentage = round((1.44 + (critP * passiveCritBonus) + (bonusAS * passiveSpeedBonus)), 2)
     return bonusDamagePercentage
 
 
